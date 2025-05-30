@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMKM Hero Section</title>
+    <link rel="stylesheet" href="src/css/output.css" />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
+      body {
+        font-family: 'DM Sans', sans-serif;
+      }
+      h1 {
+        font-family: 'Playfair Display', serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .font-logo {
+        font-family: 'Great Vibes', cursive;
+      }
+    </style>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- HEADER -->
+    <header
+      x-data="navbar()"
+      x-init="init()"
+      :class="[
+    solid ? 'bg-white shadow-md' : (scrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'),
+    'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out'
+  ]"
+    >
+      <!-- NAVIGATION -->
+      <nav
+        :class="visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'"
+        class="transition-all duration-500 ease-in-out transform px-6 py-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a
+          href="#"
+          class="flex items-center gap-2 text-xl font-bold text-[#B8402D]"
+        >
+          <img src="src/img/logo-nasi-kebuli-ajb.png" alt="Logo" class="w-14" />
+          <span class="font-logo">Nasi Kebuli Ajb</span>
+        </a>
+
+        <!-- Menu -->
+        <ul class="hidden md:flex gap-6 font-medium text-gray-800">
+          <li><a href="#hero" class="hover:text-[#B8402D]">Home</a></li>
+          <li>
+            <a href="#tentang" class="hover:text-[#B8402D]">Tentang kami</a>
+          </li>
+          <li><a href="#menu" class="hover:text-[#B8402D]">Menu</a></li>
+          <li><a href="#kontak" class="hover:text-[#B8402D]">Kontak</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <a
+          href="https://wa.me/6283822457915"
+          class="hidden md:inline-block border border-[#B8402D] text-[#B8402D] px-5 py-2 rounded-full hover:bg-[#B8402D] hover:text-white transition"
+        >
+          Pesan Sekarang
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="min-h-screen bg-cover bg-center flex items-center justify-center text-center px-6 md:px-12 bg-white"
+    >
+      <div class="py-16 px-8 rounded-lg max-w-4xl mx-auto" data-aos="fade-up">
+        <h1
+          class="text-4xl md:text-7xl font-normal text-gray-900 leading-tight mb-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Nasi Kebuli Otentik<br />dari Ajibarang
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-8"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          Rasakan kelezatan cita rasa Timur Tengah yang berpadu sempurna dengan
+          rempah khas dan sentuhan cinta dari dapur kami.
+        </p>
+        <div
+          class="flex flex-row grid-cols-1 justify-center items-center gap-4"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <a
+            href="#tentang"
+            class="bg-[#aa2e32] hover:bg-[#901f24] text-white px-3 py-2 md:px-6 md:py-3 rounded-full font-medium transition text-sm md:text-lg"
+          >
+            Tentang Kami
+          </a>
+          <a
+            href="#menu"
+            class="border border-gray-800 hover:bg-gray-100 text-gray-800 px-3 py-2 md:px-6 md:py-3 rounded-full font-medium transition text-sm md:text-lg"
+          >
+            Jelajahi Menu
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE SECTION -->
+    <section
+      id="tentang"
+      class="relative w-full bg-gradient-to-r from-[#B8402D] to-red-600 py-4 overflow-hidden z-20"
+      aria-labelledby="marquee-title"
+    >
+      <!-- Heading tersembunyi untuk SEO & screen reader -->
+      <h2 id="marquee-title" class="sr-only">Daftar Produk Unggulan</h2>
+
+      <!-- Marquee Konten -->
+      <div
+        id="marquee-text"
+        class="whitespace-nowrap text-yellow-300 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight uppercase"
+      >
+        PRODUK KAMI PRODUK KAMI PRODUK KAMI PRODUK KAMI PRODUK KAMI PRODUK KAMI
+        PRODUK KAMI PRODUK KAMI PRODUK KAMI PRODUK KAMI PRODUK KAMI
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="bg-[#f9f9f7] py-20 px-6 md:px-12 font-[DM_Sans]">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-32 items-center relative"
+      >
+        <!-- Image with contact box -->
+        <div class="relative" data-aos="zoom-in" data-aos-duration="1000">
+          <img
+            src="src/img/briyanigeprek.png"
+            alt="Food"
+            class="w-full rounded-xl shadow-lg"
+          />
+
+          <!-- Contact Info Card -->
+          <div
+            class="absolute -bottom-20 -right-5 md:-bottom-10 md:-right-10 bg-gray-800 text-white p-6 rounded-xl shadow-lg w-[90%] md:w-80"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <h3 class="text-[10px] md:text-lg font-semibold mb-4">Kontak</h3>
+            <ul class="space-y-3 text-[10px]">
+              <li class="flex items-center gap-2">
+                📞 <span>083822457915 </span>
+              </li>
+              <li class="flex items-center gap-2">
+                📍
+                <span>
+                  Jl. Tegal Sari, Dusun III, Dukuhwaluh, Kec. Kembaran,
+                  Kabupaten Banyumas, Jawa Tengah 53182
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div data-aos="fade-left" data-aos-duration="1000">
+          <h2
+            class="text-3xl md:text-4xl font-semibold text-gray-900 font-[Playfair_Display] mb-6"
+          >
+            Nasi Kebuli Ajb – Sejak 2020
+          </h2>
+          <p class="text-gray-700 mb-4 text-base leading-relaxed">
+            Berawal dari dapur rumahan saat pandemi, Nasi Kebuli Ajb tumbuh
+            lewat pre-order dan penjualan online. Kini, kami hadir di sekitar
+            kampus UMP, dikenal luas oleh mahasiswa dan warga Purwokerto.
+          </p>
+          <p class="text-gray-600 mb-6 text-sm">
+            Kami terus berkembang dengan produk baru, kemitraan mahasiswa, dan
+            semangat menyajikan rasa otentik dalam setiap porsi.
+          </p>
+          <a
+            href="about.html"
+            class="inline-block border border-gray-800 text-gray-800 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition"
+          >
+            Tentang Kami
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section
+      class="w-full bg-white py-30 px-4 sm:px-6 md:px-12 lg:px-24"
+      id="menu"
+      aria-labelledby="menu-title"
+    >
+      <!-- Hidden heading for semantic & SEO -->
+      <h2 id="menu-title" class="sr-only">Daftar Menu Kuliner Modern</h2>
+
+      <!-- Section Header -->
+      <div class="text-center mb-12 space-y-3" data-aos="fade-up">
+        <h3 class="text-3xl sm:text-4xl text-gray-900 font-[Playfair_Display]">
+          Rasakan Semua Pilihan Kami
+        </h3>
+        <p
+          class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto font-[Playfair_Display]"
+        >
+          Kami menyajikan hidangan yang bukan hanya enak, tapi juga menyimpan
+          cerita di setiap sajiannya.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
+      >
+        <!-- ITEM 1 -->
+        <article
+          class="bg-gray-50 rounded-2xl shadow-sm hover:shadow-lg transition flex flex-col"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="src/img/bestseller.png"
+            alt="Nasi Kebuli Ayam Geprek"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="text-xl font-bold text-gray-900">
+                Nasi Kebuli Ayam Geprek
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Nasi kebuli lezat dengan ayam geprek pedas, cocok untuk pecinta
+                rasa berani.
+              </p>
+              <p class="text-purple-black font-semibold text-lg">Rp12.000</p>
+            </div>
+            <a
+              href="https://wa.me/6283822457915?text=Halo%20Saya%20mau%20pesan%20*Nasi%20Kebuli%20Ayam%20Geprek*%20Rp12.000"
+              class="inline-block bg-[#aa2e32] text-white hover:text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-white border transition text-center"
+            >
+              Pesan Sekarang
+            </a>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article
+          class="bg-gray-50 rounded-2xl shadow-sm hover:shadow-lg transition flex flex-col"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <img
+            src="src/img/ayamkrispi.png"
+            alt="Nasi Kebuli Ayam Krispi"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="text-xl font-bold text-gray-900">
+                Nasi Kebuli Ayam Krispi
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Nasi kebuli gurih dengan ayam krispi renyah, kaya rempah, nikmat
+                setiap gigitan.
+              </p>
+              <p class="text-purple-black font-semibold text-lg">Rp12.000</p>
+            </div>
+            <a
+              href="https://wa.me/6283822457915?text=Halo%20Saya%20mau%20pesan%20*Nasi%20Kebuli%20Ayam%20Krispi*%20Rp12.000"
+              class="inline-block bg-[#aa2e32] text-white hover:text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-white border transition text-center"
+            >
+              Pesan Sekarang
+            </a>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article
+          class="bg-gray-50 rounded-2xl shadow-sm hover:shadow-lg transition flex flex-col"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <img
+            src="src/img/briyani.png"
+            alt="Nasi Briyani Ayam Goreng"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="text-xl font-bold text-gray-900">
+                Nasi Briyani Ayam Goreng
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Nasi briyani harum rempah dengan ayam goreng berbumbu, nikmat
+                dan mengenyangkan.
+              </p>
+              <p class="text-purple-black font-semibold text-lg">Rp15.000</p>
+            </div>
+            <a
+              href="https://wa.me/6283822457915?text=Halo%20Saya%20mau%20pesan%20*Nasi%20Briyani%20Ayam%20Goreng*%20Rp15.000"
+              class="inline-block bg-[#aa2e32] text-white hover:text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-white border transition text-center"
+            >
+              Pesan Sekarang
+            </a>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article
+          class="bg-gray-50 rounded-2xl shadow-sm hover:shadow-lg transition flex flex-col"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <img
+            src="src/img/ayamkatsu.png"
+            alt="Nasi Kebuli Ayam Katsu"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="text-xl font-bold text-gray-900">
+                Nasi Kebuli Ayam Katsu
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Perpaduan unik nasi kebuli dan ayam katsu Jepang, gurih dan
+                menggugah selera.
+              </p>
+              <p class="text-purple-black font-semibold text-lg">Rp12.000</p>
+            </div>
+            <a
+              href="https://wa.me/6283822457915?text=Halo%20Saya%20mau%20pesan%20*Nasi%20Kebuli%20Ayam%20Katsu*%20Rp12.000"
+              class="inline-block bg-[#aa2e32] text-white hover:text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-white border transition text-center"
+            >
+              Pesan Sekarang
+            </a>
+          </div>
+        </article>
+
+        <!-- ITEM 5 -->
+        <article
+          class="bg-gray-50 rounded-2xl shadow-sm hover:shadow-lg transition flex flex-col"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <img
+            src="src/img/telurayam.png"
+            alt="Nasi Kebuli Telur Ayam"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="text-xl font-bold text-gray-900">
+                Nasi Kebuli Telur Ayam
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Nasi kebuli aromatik disajikan dengan telur ayam rebus dan
+                sambal khas.
+              </p>
+              <p class="text-purple-black font-semibold text-lg">Rp12.000</p>
+            </div>
+            <a
+              href="https://wa.me/6283822457915?text=Halo%20Saya%20mau%20pesan%20*Nasi%20Kebuli%20Telur%20Ayam*%20Rp12.000"
+              class="inline-block bg-[#aa2e32] text-white hover:text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-white border transition text-center"
+            >
+              Pesan Sekarang
+            </a>
+          </div>
+        </article>
+
+        <!-- ITEM 6 -->
+        <article
+          class="bg-gray-50 rounded-2xl shadow-sm hover:shadow-lg transition flex flex-col"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <img
+            src="src/img/ayamori.png"
+            alt="Nasi Kebuli Ayam Original"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="text-xl font-bold text-gray-900">
+                Nasi Kebuli Ayam Original
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Kelezatan autentik nasi kebuli dengan ayam bumbu rempah khas
+                Timur Tengah.
+              </p>
+              <p class="text-purple-black font-semibold text-lg">Rp12.000</p>
+            </div>
+            <a
+              href="https://wa.me/6283822457915?text=Halo%20Saya%20mau%20pesan%20*Nasi%20Kebuli%20Ayam%20Original*%20Rp12.000"
+              class="inline-block bg-[#aa2e32] text-white hover:text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-white border transition text-center"
+            >
+              Pesan Sekarang
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="bg-white py-20 px-6 md:px-12 font-[DM_Sans]">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-3xl md:text-4xl font-normal text-gray-900 font-[Playfair_Display] mb-10 text-center"
+          data-aos="fade-up"
+        >
+          Pertanyaan yang Sering Ditanyakan
+        </h2>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details
+            class="group border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 open:shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer p-4 text-base font-semibold text-gray-800"
+            >
+              Q: Bukanya hari apa aja kak?
+              <svg
+                class="w-5 h-5 text-gray-600 transform transition-transform duration-300 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div class="px-4 pb-4 text-sm text-gray-700">
+              A: Kami buka setiap hari kecuali hari sabtu ya kak, mulai dari jam
+              09:00 - 20:00 WIB
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details
+            class="group border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 open:shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer p-4 text-base font-semibold text-gray-800"
+            >
+              Q: Bisa DO gak kak?
+              <svg
+                class="w-5 h-5 text-gray-600 transform transition-transform duration-300 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div class="px-4 pb-4 text-sm text-gray-700">
+              A: Bisa kak, dan free ongkir khusus area kampus 1 Universitas
+              Muhammadiyah Purwokerto
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details
+            class="group border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 open:shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer p-4 text-base font-semibold text-gray-800"
+            >
+              Q: Lokasinya di mana kak?
+              <svg
+                class="w-5 h-5 text-gray-600 transform transition-transform duration-300 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div class="px-4 pb-4 text-sm text-gray-700">
+              A: Di belakang UMP kak. Dari lampu merah belok ke selatan, lalu ke
+              timur. Titik pastinya ada di Google Maps, link-nya ada di bio
+              Instagram @nasikebuliajb.
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details
+            class="group border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 open:shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer p-4 text-base font-semibold text-gray-800"
+            >
+              Q: Best sellernya apa kak?
+              <svg
+                class="w-5 h-5 text-gray-600 transform transition-transform duration-300 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div class="px-4 pb-4 text-sm text-gray-700">
+              A: Nasi kebuli ayam geprek, cuma 12ribuan aja. Yok cobain!
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white px-6 md:px-12 font-[DM_Sans]">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2
+          class="text-3xl md:text-4xl font-normal text-gray-900 font-[Playfair_Display] mb-12"
+          data-aos="fade-up"
+        >
+          Testimoni Pelanggan
+        </h2>
+
+        <div class="grid gap-8 grid-cols-1 md:grid-cols-3 text-left">
+          <!-- Testimoni 1 -->
+          <div
+            class="bg-[#f9f9f7] rounded-xl p-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Enak nasinya makin berasa rempahnya, kentangnya kriuk pedes,
+              sambelnya nagih. Ayamnya empuk, nggak keras. Rasanya nggak cukup
+              satu porsi! 🤭
+            </p>
+            <p class="font-semibold text-sm text-[#aa2e32]">Ayu Rahmawati</p>
+          </div>
+
+          <!-- Testimoni 2 -->
+          <div
+            class="bg-[#f9f9f7] rounded-xl p-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Nasi kebulinya enake puollll! Obat kangen makanan Ajibarang.
+              Gurih, asin, pedes, wangi. Mbah aja sampe komentar pas aku makan
+              lahap 😄
+            </p>
+            <p class="font-semibold text-sm text-[#aa2e32]">Rizky Prasetyo</p>
+          </div>
+
+          <!-- Testimoni 3 -->
+          <div
+            class="bg-[#f9f9f7] rounded-xl p-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Enak pol, dari rumahku ke sana 1 jam demi nasi kebuli Ajb. Worth
+              it banget!
+            </p>
+            <p class="font-semibold text-sm text-[#aa2e32]">Dian Oktaviani</p>
+          </div>
+
+          <!-- Testimoni 4 -->
+          <div
+            class="bg-[#f9f9f7] rounded-xl p-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Nasinya enak dan gurih, sambelnya nampol. Aku kemarin pesen varian
+              telur, cocok banget di kantong anak kos 🤗
+            </p>
+            <p class="font-semibold text-sm text-[#aa2e32]">Fahri Nurhalim</p>
+          </div>
+
+          <!-- Testimoni 5 -->
+          <div
+            class="bg-[#f9f9f7] rounded-xl p-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Harga segini dapet rasa dan porsi segitu? Mantep masss! 🙌🏼🙏🏼
+            </p>
+            <p class="font-semibold text-sm text-[#aa2e32]">Tasya Nur Aini</p>
+          </div>
+
+          <!-- Testimoni 6 -->
+          <div
+            class="bg-[#f9f9f7] rounded-xl p-6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <p class="text-gray-700 text-sm leading-relaxed mb-6">
+              Aku udah nyobain bareng temen-temen, 11/10 sih. Rasanya enak
+              banget dan harganya ramah banget!
+            </p>
+            <p class="font-semibold text-sm text-[#aa2e32]">Arif Setiawan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="kontak" class="bg-gray-900 text-white pt-16 pb-8 px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- KIRI: Kontak & Sosial -->
+        <div class="space-y-6">
+          <!-- Logo + Nama Brand -->
+          <div class="flex items-center gap-3">
+            <img
+              src="src/img/logo-nasi-kebuli-ajb.png"
+              alt="Logo Nasi Kebuli AJB"
+              class="w-10 h-10 object-cover"
+            />
+            <h2 class="text-2xl font-bold">Nasi Kebuli Ajibarang</h2>
+          </div>
+
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-center gap-3">
+              <svg
+                class="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 11c1.66 0 3-1.34 3-3S13.66 5 12 5s-3 1.34-3 3 1.34 3 3 3zm0 0c0 4.142 7.5 10 7.5 10S4.5 15.142 4.5 11A7.5 7.5 0 0112 3a7.5 7.5 0 017.5 8z"
+                />
+              </svg>
+              <span>
+                Jl. Tegal Sari, Dusun III, Dukuhwaluh, Kec. Kembaran, Kabupaten
+                Banyumas, Jawa Tengah 53182
+              </span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg
+                class="w-5 h-5 text-green-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20.5 3.5A12 12 0 0012 0a12 12 0 00-9 20.8L0 24l3.4-2.9A12 12 0 1012 24a12 12 0 008.5-20.5z"
+                />
+                <path
+                  d="M17 15.5l-2-0.5c-.4-.1-.8 0-1 .3l-.5.5a9.6 9.6 0 01-4.8-4.8l.5-.5c.2-.3.3-.6.2-1l-.5-2C8.8 7 8.6 6.8 8.3 6.8H6.7C6.3 6.8 6 7.1 6 7.5a10.5 10.5 0 0010.5 10.5c.4 0 .7-.3.7-.7v-1.6c0-.3-.2-.6-.5-.7z"
+                />
+              </svg>
+              <a
+                href="https://wa.me/6283822457915"
+                target="_blank"
+                class="hover:text-[#aa2e32] transition"
+                >0838-2245-7915</a
+              >
+            </li>
+            <li class="flex items-center gap-3">
+              <svg
+                class="w-5 h-5 text-pink-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2.2c3.2 0 3.6.01 4.85.07 1.17.06 1.96.24 2.41.41a4.9 4.9 0 011.68 1.08 4.9 4.9 0 011.08 1.68c.17.45.35 1.24.41 2.41.06 1.25.07 1.65.07 4.85s-.01 3.6-.07 4.85c-.06 1.17-.24 1.96-.41 2.41a4.9 4.9 0 01-1.08 1.68 4.9 4.9 0 01-1.68 1.08c-.45.17-1.24.35-2.41.41-1.25.06-1.65.07-4.85.07s-3.6-.01-4.85-.07c-1.17-.06-1.96-.24-2.41-.41a4.9 4.9 0 01-1.68-1.08 4.9 4.9 0 01-1.08-1.68c-.17-.45-.35-1.24-.41-2.41C2.2 15.6 2.2 15.2 2.2 12s.01-3.6.07-4.85c.06-1.17.24-1.96.41-2.41A4.9 4.9 0 013.76 3.1a4.9 4.9 0 011.68-1.08c.45-.17 1.24-.35 2.41-.41C8.4 2.2 8.8 2.2 12 2.2z"
+                />
+                <path
+                  d="M12 6.8a5.2 5.2 0 100 10.4 5.2 5.2 0 000-10.4zM18.4 5.6a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"
+                />
+              </svg>
+              <a
+                href="https://instagram.com/nasikebuliajb"
+                target="_blank"
+                class="hover:text-[#aa2e32] transition"
+                >@nasikebuliajb</a
+              >
+            </li>
+            <li class="flex items-center gap-3">
+              <svg
+                class="w-5 h-5 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12.07 0H16a4 4 0 004 4v3.93a7 7 0 01-4-1.21V16a6 6 0 11-6-6h1v3h-1a3 3 0 103 3V0z"
+                />
+              </svg>
+              <a
+                href="https://tiktok.com/@kebuliajb"
+                target="_blank"
+                class="hover:text-[#aa2e32] transition"
+                >@kebuliajb</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- KANAN: Google Maps -->
+        <div class="w-full h-64">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.452927681596!2d109.2709541!3d-7.415019699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655fcabb5fbda3%3A0x9146682eaeaef311!2sKEBULI%20AJB%20UMKM%20UMP!5e0!3m2!1sid!2sid!4v1748604649334!5m2!1sid!2sid"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-lg shadow-md"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- BAWAH -->
+      <div
+        class="mt-10 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400"
+      >
+        <ul
+          class="flex flex-col md:flex-row gap-3 md:gap-6 text-center md:text-left mb-4 md:mb-0"
+        >
+          <li>
+            <a href="#about" class="hover:text-white transition"
+              >Tentang Kami</a
+            >
+          </li>
+          <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+          <li>
+            <a
+              href="https://instagram.com/nasikebuliajb"
+              target="_blank"
+              class="hover:text-white transition"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://wa.me/6283822457915"
+              target="_blank"
+              class="hover:text-white transition"
+              >WhatsApp</a
+            >
+          </li>
+        </ul>
+        <p class="text-center md:text-right">© 2025 • Nasi Kebuli AJB</p>
+      </div>
+    </footer>
+  </body>
+  <!-- Alpine.js Navbar Logic -->
+  <script>
+    function navbar() {
+      return {
+        lastScroll: 0,
+        visible: true,
+        scrolled: false,
+        solid: false,
+        init() {
+          window.addEventListener('scroll', () => {
+            const current = window.pageYOffset;
+            this.scrolled = current > 10;
+            this.solid = current > 300;
+
+            if (current > this.lastScroll && current > 100) {
+              this.visible = false;
+            } else {
+              this.visible = true;
+            }
+
+            this.lastScroll = current <= 0 ? 0 : current;
+          });
+        },
+        scrollTo(selector) {
+          const target = document.querySelector(selector);
+          const offset = 80; // tinggi navbar
+          const top =
+            target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top,
+            behavior: 'smooth',
+          });
+        },
+      };
+    }
+  </script>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  </script>
+</html>
